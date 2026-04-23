@@ -1,0 +1,12 @@
+opencv-python
+deepface
+dotenv
+numpy
+google-generativeai
+python-dotenv
+google-api-python-client
+yt-dlp
+gradio
+transformers
+torch
+torchvision

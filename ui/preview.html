@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deepfake Protection UI Preview</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main style="max-width:1200px;margin:20px auto;padding:0 12px;display:grid;gap:18px;">
+        <div class="hero-card">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-kicker">Deepfake Protection AI</div>
+                    <div class="hero-title">
+                        <span>Detect. Review.</span>
+                        <span>Escalate. Remove.</span>
+                    </div>
+                    <div class="hero-copy">
+                        This prototype scans suspicious media and combines face detection,
+                        identity matching, deepfake classification, and Gemini context review.
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Scan modes</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-note">Image, video, and YouTube link.</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">AI layers</div>
+                        <div class="stat-value">4</div>
+                        <div class="stat-note">Vision, identity, risk review, drafting.</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Output</div>
+                        <div class="stat-value">JSON</div>
+                        <div class="stat-note">Audit-ready evidence trace.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel control-panel">
+            <div class="section-title">Operational Flow</div>
+            <div class="section-note">Defensive workflow built for fast evidence triage and escalation.</div>
+            <div class="flow-grid">
+                <div class="flow-step"><strong>1.</strong>Pick your source mode.</div>
+                <div class="flow-step"><strong>2.</strong>Upload media or paste a URL.</div>
+                <div class="flow-step"><strong>3.</strong>Add trusted reference identity image.</div>
+                <div class="flow-step"><strong>4.</strong>Run scan and inspect risk verdict.</div>
+            </div>
+        </div>
+
+        <div class="dashboard-shell">
+            <div class="dashboard-topline">
+                <div>
+                    <div class="eyebrow">Mission Control</div>
+                    <h2>HIGH RISK</h2>
+                    <p>Potential misuse detected for Demo Identity. Source: YouTube URL.</p>
+                </div>
+                <div class="status-pill danger">Potential misuse detected</div>
+            </div>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Reference</div>
+                    <div class="metric-value">Demo Identity</div>
+                    <div class="metric-hint">YouTube clip: sample title</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Face Scan</div>
+                    <div class="metric-value">Detected</div>
+                    <div class="metric-hint">Faces seen: 1</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Identity Match</div>
+                    <div class="metric-value">YES</div>
+                    <div class="metric-hint">Distance: 0.2170 | Threshold: 0.4000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Deepfake Score</div>
+                    <div class="metric-value">0.912</div>
+                    <div class="metric-hint">Classifier: fake</div>
+                </div>
+            </div>
+            <div class="signal-block">
+                <div class="signal-header">AI Risk Level</div>
+                <div class="progress-track"><div class="progress-fill" style="width: 91.20%;"></div></div>
+                <div class="signal-footer">Confidence 0.912 | Gemini verdict merges context, identity, and score signals.</div>
+            </div>
+            <div class="trace-row">
+                <div class="trace-chip">Elapsed: 1.91s</div>
+                <div class="trace-chip">Face detected: TRUE</div>
+                <div class="trace-chip">Model source: model</div>
+            </div>
+            <div class="analysis-panel">
+                <div class="analysis-title">Gemini Decision</div>
+                <pre>{
+  "misuse": true,
+  "confidence": 0.912,
+  "reason": "High deepfake score with positive identity signal.",
+  "recommended_action": "Draft takedown and escalate."
+}</pre>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.documentElement.classList.add("deepfake-app-ready");
+
+        const selectRevealNodes = () =>
+            document.querySelectorAll(
+                ".hero-card, .glass-panel, .dashboard-shell, .metric-card, .signal-block, .analysis-panel, .stat-box, .flow-step, .trace-chip"
+            );
+
+        selectRevealNodes().forEach((node, index) => {
+            node.classList.add("reveal");
+            node.classList.add(`stagger-${(index % 4) + 1}`);
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add("is-visible");
+                });
+            },
+            { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        selectRevealNodes().forEach((node) => observer.observe(node));
+
+        const hero = document.querySelector(".hero-card");
+        if (hero) {
+            const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
+            hero.addEventListener("mousemove", (event) => {
+                const rect = hero.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width;
+                const y = (event.clientY - rect.top) / rect.height;
+                const tiltY = clamp((x - 0.5) * 10, -5, 5);
+                const tiltX = clamp((0.5 - y) * 8, -4, 4);
+                hero.style.setProperty("--tilt-x", `${tiltX}deg`);
+                hero.style.setProperty("--tilt-y", `${tiltY}deg`);
+            });
+            hero.addEventListener("mouseleave", () => {
+                hero.style.setProperty("--tilt-x", "0deg");
+                hero.style.setProperty("--tilt-y", "0deg");
+            });
+        }
+
+        document.addEventListener("mousemove", (event) => {
+            const root = document.documentElement;
+            const x = (event.clientX / window.innerWidth) * 100;
+            const y = (event.clientY / window.innerHeight) * 100;
+            root.style.setProperty("--pointer-x", x.toFixed(2));
+            root.style.setProperty("--pointer-y", y.toFixed(2));
+        });
+    </script>
+</body>
+</html>

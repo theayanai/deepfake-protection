@@ -1,0 +1,27 @@
+<div class="dashboard-shell">
+    <div class="dashboard-topline">
+        <div>
+            <div class="eyebrow">Mission Control</div>
+            <h2>$verdict</h2>
+            <p>$badge_text for $celebrity_name. Source: $source_label.</p>
+        </div>
+        <div class="status-pill $badge_class">$badge_text</div>
+    </div>
+    <div class="metric-grid">
+$metric_cards_html
+    </div>
+    <div class="signal-block">
+        <div class="signal-header">AI Risk Level</div>
+        <div class="progress-track"><div class="progress-fill" style="width: $risk_width%;"></div></div>
+        <div class="signal-footer">Confidence $risk_value | Gemini verdict merges context, identity, and score signals.</div>
+    </div>
+    <div class="trace-row">
+        <div class="trace-chip">Elapsed: $elapsed_seconds</div>
+        <div class="trace-chip">Face detected: $face_detected_badge</div>
+        <div class="trace-chip">Model source: $model_source</div>
+    </div>
+    <div class="analysis-panel">
+        <div class="analysis-title">Gemini Decision</div>
+        <pre>$analysis_json_pretty</pre>
+    </div>
+</div>
