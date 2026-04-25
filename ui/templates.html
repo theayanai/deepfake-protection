@@ -1,0 +1,109 @@
+<!-- HERO_START -->
+<div class="hero-card">
+    <div class="hero-grid">
+        <div>
+            <div class="hero-kicker">Deepfake Protection AI</div>
+            <div class="hero-title">
+                <span class="line1">Detect. Review.</span>
+                <span class="line2">Escalate. Remove.</span>
+            </div>
+            <div class="hero-copy">
+                This prototype scans a suspicious image, a local video frame, or a YouTube thumbnail, then combines face detection,
+                InsightFace identity matching, a Hugging Face deepfake classifier, and Gemini context review into one defensive workflow.
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-box">
+                <div class="stat-label">Scan modes</div>
+                <div class="stat-value">3</div>
+                <div class="stat-note">Image, video, or YouTube link.</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">AI layers</div>
+                <div class="stat-value">4</div>
+                <div class="stat-note">Vision, identity, Gemini, notice drafting.</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Output</div>
+                <div class="stat-value">JSON</div>
+                <div class="stat-note">Audit-ready decision and DMCA draft.</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HERO_END -->
+
+<!-- FLOW_START -->
+<div class="glass-panel control-panel">
+    <div class="section-title">Operational Flow</div>
+    <div class="section-note">Defensive workflow built for fast evidence triage and escalation.</div>
+    <div class="flow-grid">
+        <div class="flow-step"><strong>1.</strong>Pick your source mode.</div>
+        <div class="flow-step"><strong>2.</strong>Upload media or add a YouTube URL.</div>
+        <div class="flow-step"><strong>3.</strong>Add a trusted reference face image.</div>
+        <div class="flow-step"><strong>4.</strong>Launch the sweep and inspect verdicts.</div>
+    </div>
+</div>
+<!-- FLOW_END -->
+
+<!-- DASHBOARD_START -->
+<div class="dashboard-shell">
+    <div class="dashboard-topline">
+        <div>
+            <div class="eyebrow">Mission Control</div>
+            <div class="verdict $badge_class">$verdict ($risk_value)</div>
+            <p>$badge_text for $celebrity_name. Source: $source_label.</p>
+        </div>
+        <div class="status-pill $badge_class">$badge_text</div>
+    </div>
+    <div class="metric-grid">
+$metric_cards_html
+        <div class="metric-card">
+            <div class="metric-label">Audio Risk</div>
+            <div class="metric-value">$audio_score</div>
+        </div>
+    </div>
+    <div class="face-preview">
+        <h3>Detected Face</h3>
+        $face_crop_html
+    </div>
+    <div class="signal-block">
+        <div class="signal-header">AI Risk Level</div>
+        <div class="risk-bar">
+            <div class="risk-fill" style="width:$risk_width%"></div>
+        </div>
+        <div class="signal-footer">Confidence $risk_value | Gemini verdict merges context, identity, and score signals.</div>
+    </div>
+    <div class="breakdown">
+        <p>Deepfake: $deepfake</p>
+        <p>AI Generated: $ai</p>
+        <p>Gemini Vision: $vision</p>
+        <p>Audio: $audio</p>
+        <p>Temporal: $temporal</p>
+        <p>Identity: $identity</p>
+    </div>
+    <div class="pipeline">
+        <h3>Detection Pipeline</h3>
+        <ul>
+            <li>Face Detection</li>
+            <li>Identity Verification</li>
+            <li>Deepfake Model</li>
+            <li>Audio Analysis</li>
+            <li>Temporal Analysis</li>
+            <li>AI Decision</li>
+        </ul>
+    </div>
+    <div class="human-reason">
+        $human_explanation
+    </div>
+    <div class="trace-row">
+        <div class="trace-chip">Elapsed: $elapsed_seconds</div>
+        <div class="trace-chip">Face detected: $face_detected_badge</div>
+        <div class="trace-chip">Model source: $model_source</div>
+    </div>
+    <div class="analysis-panel">
+        <div class="analysis-title">Gemini Decision</div>
+        <pre>$analysis_json_pretty</pre>
+    </div>
+</div>
+<!-- DASHBOARD_END -->
