@@ -1,5 +1,13 @@
 # 🛡️ Deepfake Detection & Identity Verification System  
-**Python · FastAPI · Computer Vision · Multimodal AI**
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-orange?style=for-the-badge)
+![Gemini AI](https://img.shields.io/badge/Gemini-AI-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+
+**Computer Vision · Deep Learning · Identity Verification · Explainable AI**
 
 An advanced AI-powered system designed to detect **deepfakes, AI-generated media, and identity mismatches** using a combination of facial recognition, visual analysis, and explainable AI reasoning.
 
